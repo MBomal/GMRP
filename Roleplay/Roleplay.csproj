@@ -60,10 +60,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="resources\Rolepalys\Server\Account\AccountManager.cs" />
+    <Compile Include="resources\Rolepalys\Server\Admin\command.cs" />
     <Compile Include="resources\Rolepalys\Server\Characters\CharacterManager.cs" />
     <Compile Include="resources\Rolepalys\Server\Item\Distributeur.cs" />
     <Compile Include="resources\Rolepalys\Server\Job\job\Bus.cs" />
-    <Compile Include="resources\Rolepalys\Server\Admin\Command.cs" />
     <Compile Include="resources\Rolepalys\Server\Database\DataBaseManager.cs" />
     <Compile Include="resources\Rolepalys\Server\EntityManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

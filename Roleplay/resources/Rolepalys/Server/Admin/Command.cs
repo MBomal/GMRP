@@ -13,12 +13,12 @@ namespace Roleplay.Server.Admin
     public class Command : Script
     {
         [Command]
-            public static void AdminCommand(Client player)
+        public static void AdminCommand(Client player)
+        {
+            if (AdminRankCheck(player) > 0)
             {
-                if(AdminRankCheck(player) > 0)
-                {
                 int rank = AdminRankCheck(player);
-            
+
 
 
                 //Liste des joueurs en ligne Generer via EntityManager et OnPlayerConnect
@@ -30,7 +30,7 @@ namespace Roleplay.Server.Admin
                 //Liste des montant pour Give
                 List<string> _Money = new List<string>();
                 int money = 0;
-                for (int i= 0; i < 10; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     money += 10000;
                     _Money.Add(money.ToString());
@@ -61,11 +61,11 @@ namespace Roleplay.Server.Admin
                 _Checkbox.Add("GodMode");
                 _Checkbox.Add("Invisible");
 
-                API.shared.triggerClientEvent(player, "create_menu", "Menu Admin", "Menu Admin", _NomListe,_ConteneurListe,_MenuItem,_Checkbox);
+                API.shared.triggerClientEvent(player, "create_menu", "Menu Admin", "Menu Admin", _NomListe, _ConteneurListe, _MenuItem, _Checkbox);
                 /*API.shared.triggerClientEvent(player, "create_menu", "Menu Admin","Menu Admin", _MenuItem, _Joueur, _Checkbox,_Money,_Rank,rank);*/
             }
         }
-        public static void TpToPlayer(Client sender,string socialClub)
+        public static void TpToPlayer(Client sender, string socialClub)
         {
             Client target = EntityManager.GetClient(socialClub);
             sender.position = target.position;
@@ -73,14 +73,14 @@ namespace Roleplay.Server.Admin
         public static void TpPlayer(Client sender, string socialClub)
         {
             Client target = EntityManager.GetClient(socialClub);
-             target.position = sender.position;
+            target.position = sender.position;
         }
         public static void KickPlayer(Client sender, string socialClub)
         {
             Client target = EntityManager.GetClient(socialClub);
             API.shared.kickPlayer(target, "");
         }
-        public static void GiveMoney(string socialClub,int amount)
+        public static void GiveMoney(string socialClub, int amount)
         {
             Client target = EntityManager.GetClient(socialClub);
             AccountManager account = EntityManager.GetAccount(target.handle);
@@ -92,7 +92,7 @@ namespace Roleplay.Server.Admin
             var account = EntityManager.GetAccount(sender.handle);
             return account.AccountData.AdminRank;
         }
-        public static void SetAdminRank(string socialClub,int rank)
+        public static void SetAdminRank(string socialClub, int rank)
         {
             var client = EntityManager.GetClient(socialClub);
             var account = EntityManager.GetAccount(client.handle);
@@ -101,7 +101,7 @@ namespace Roleplay.Server.Admin
         }
         public static void SetInvisible(Client player)
         {
-            if(player.getData("invisible")==null || player.getData("invisible") == false)
+            if (player.getData("invisible") == null || player.getData("invisible") == false)
             {
                 API.shared.setEntityTransparency(player.handle, 0);
                 player.setData("invisible", true);
@@ -114,10 +114,10 @@ namespace Roleplay.Server.Admin
         }
         public static void SetInvincible(Client player)
         {
-            if (player.getData("Invincible")==null || player.getData("Invicible") == false)
+            if (player.getData("Invincible") == null || player.getData("Invicible") == false)
             {
                 API.shared.setEntityInvincible(player.handle, true);
-                player.setData("Invicible",true);
+                player.setData("Invicible", true);
             }
             else
             {
