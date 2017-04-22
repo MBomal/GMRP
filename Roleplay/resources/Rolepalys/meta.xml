@@ -1,0 +1,13 @@
+﻿<meta>
+  <info name="MySQL LINQ Example" description="MySQL LINQ Example" author="Eraknelo" version="1.0" />
+
+  <!-- Server -->
+  <script src="Server/Bin/Roleplay.dll" type="server" lang="compiled" />
+  <script src="LoginCamera.js" type="client" lang="javascript" />
+  <script src="MenuManager.js" type="client" lang="javascript" />
+  <script src="Job.js" type="client" lang="javascript" />
+  <script src="Ch.js" type="client" lang="javascript" />
+  <script src="KeyManager.js" type="client" lang="javascript" />
+  <file src="myfile.html"/>
+
+</meta>

@@ -1,0 +1,25 @@
+﻿<html>
+<body>
+	<form>
+		<input type="text" id="username" placeholder="username" />
+		<input type="password" id="password" placeholder="password" />
+		<button onclick="logPlayer();" id="login">login</button>
+	</form>
+	<p id="demo"></p>
+    <script>
+		const myModule = require('./CEF');
+
+            document.getElementById("demo").innerHTML = myModule.hello();
+    </script>
+</body>
+</html>
+
+<script>
+    function logPlayer()  //this is the function we called with OnClick in the last step
+    {
+        var username = document.getElementById("username").value;//= $("#username").val(); //set a var "username" to the value of the input with the id "username"
+        var password = document.getElementById("password").value;//= $("#password").val();//set a var "password" to the value of the input with the id "password"
+        resourceCall("login", username, password); //call a function named "login" in our javascript file.
+        //alert("nick " + username + " heslo " + password);
+    };
+</script>
